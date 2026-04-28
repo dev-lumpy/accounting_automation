@@ -1,7 +1,14 @@
-from main import VentanaAsiento
-from lib import guardar_ventana
+from tkinter import Tk
 
-app = VentanaAsiento()
+from lib import guardar_ventana
+from windows_app import WindowError
+
+root = Tk()
+
+app = WindowError(root)
+app.message("¡Error! No se pudo cargar la geometría guardada. Se aplicará la geometría por defecto.").show()
+
+ventana_ejecutar = root
 
 def handler(event):
     if (event.state & 0x4):
@@ -17,11 +24,11 @@ def handler(event):
 
             case "p":
                 print("Guardando posición...")
-                size, x, y = app.root.geometry().split("+")
+                size, x, y = app.geometry().split("+")
 
                 width, height = size.split("x")
 
-                guardar_ventana("ASIENTO", {
+                guardar_ventana(app.tag, {
                     "x": int(x),
                     "y": int(y),
                     "width": int(width),
@@ -35,7 +42,7 @@ print("Ventana creada. Puedes moverla con Ctrl + Numpad 4/6/8/2.")
 def mover(dx=0, dy=0):
     # Obtener geometría actual
     print("Moviendo ventana...")
-    geo = app.root.geometry()
+    geo = app.geometry()
     print(geo)
     size_pos = geo.split("+")
     
@@ -48,11 +55,11 @@ def mover(dx=0, dy=0):
     y += dy
 
     # Aplicar nueva geometría
-    app.root.geometry(f"{ancho_alto}+{x}+{y}")
+    app.geometry(f"{ancho_alto}+{x}+{y}")
 
 print("Listo para mover la ventana.")
 # Bind de teclas
-app.root.bind("<Key>", handler)
+app.bind("<Key>", handler)
 print("Usa Ctrl + Numpad 4/6/8/2 para mover la ventana.")
 
-app.ejecutar()
+ventana_ejecutar.mainloop()

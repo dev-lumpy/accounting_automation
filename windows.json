@@ -1,18 +1,26 @@
 {
     "ASIENTO": {
-        "x": 10,
-        "y": 15,
-        "width": 585,
-        "height": 300
+        "x": 9,
+        "y": 3,
+        "width": 559,
+        "height": 182
     },
     "PLAN_CUENTAS": {
-        "x": 234,
-        "y": 122,
-        "height": 100,
-        "width": 200
+        "x": 575,
+        "y": 8,
+        "width": 401,
+        "height": 939
     },
     "LIST_ASIENTOS": {
         "height": 100,
         "width": 200
+    },
+    "LISTA_ASIENTOS": {
+        "width": 739,
+        "height": 207
+    },
+    "ERROR_TRACEBACK": {
+        "width": 1127,
+        "height": 785
     }
 }
