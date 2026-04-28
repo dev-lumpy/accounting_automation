@@ -56,3 +56,18 @@ app.root.bind("<Key>", handler)
 print("Usa Ctrl + Numpad 4/6/8/2 para mover la ventana.")
 
 app.ejecutar()
+
+
+$urlRepo = "https://github.com/torvalds/linux"
+
+# Extraer owner/repo desde la URL
+$path = ([uri]$urlRepo).AbsolutePath.Trim("/")
+$apiUrl = "https://api.github.com/repos/$path"
+
+try {
+    Invoke-WebRequest $apiUrl -Method Head -Headers @{ "User-Agent"="PowerShell" } | Out-Null
+    "EXISTE"
+}
+catch {
+    "NO EXISTE"
+}
