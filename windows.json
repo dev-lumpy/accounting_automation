@@ -1,0 +1,18 @@
+{
+    "ASIENTO": {
+        "x": 10,
+        "y": 15,
+        "width": 585,
+        "height": 300
+    },
+    "PLAN_CUENTAS": {
+        "x": 234,
+        "y": 122,
+        "height": 100,
+        "width": 200
+    },
+    "LIST_ASIENTOS": {
+        "height": 100,
+        "width": 200
+    }
+}
